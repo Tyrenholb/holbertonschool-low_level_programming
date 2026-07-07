@@ -14,7 +14,7 @@ int main(void)
 	{
 		putchar(ch);
 	}
-	for (nu = '0'; nu <= '9'; ch++)
+	for (nu = '0'; nu <= '9'; nu++)
 	{
 		putchar(nu);
 	}
