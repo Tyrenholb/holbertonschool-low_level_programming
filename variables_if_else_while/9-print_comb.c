@@ -15,6 +15,7 @@ int main(void)
 		if (nu < '9')
 		{
 			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
