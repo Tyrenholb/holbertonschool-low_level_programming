@@ -1,12 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - entry point
+ * main - Prints the alphabet in lowercase.
  *
- * prints the alphabet in lowercase followed by a new line.
- * can only use putchar twice
- *
- * return: always 0
+ * Return: Always 0 (Success)
  */
 	int main(void)
 	{
