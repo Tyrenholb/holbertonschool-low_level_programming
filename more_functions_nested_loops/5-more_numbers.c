@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * more_numbers - Prints the numbers from 0 to 14 ten times
- *
- * Return: void
- */
+* more_numbers - Prints the numbers from 0 to 14 ten times
+*
+* Return: void
+*/
 void more_numbers(void)
 {
 	int row = 0;
