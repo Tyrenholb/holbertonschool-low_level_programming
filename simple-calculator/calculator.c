@@ -55,7 +55,13 @@ printf("Choice: 3 \n");
 }
 else if (menu == 4)
 {
-	printf("Enter your divison here: ");
+printf("Choice: 4 \n");
+	printf("A: ");
+	scanf("%d", &A);
+	printf("B: ");
+	scanf("%d", &B);
+	printf("Result: %d\n", A / B);
+
 }
 else if (menu == 0)
 {
