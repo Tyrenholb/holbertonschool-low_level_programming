@@ -46,7 +46,12 @@ printf("Choice: 2 \n");
 }
 else if (menu == 3)
 {
-	printf("Enter your multipication here: ");
+printf("Choice: 3 \n");
+	printf("A: ");
+	scanf("%d", &A);
+	printf("B: ");
+	scanf("%d", &B);
+	printf("Result: %d\n", A * B);
 }
 else if (menu == 4)
 {
