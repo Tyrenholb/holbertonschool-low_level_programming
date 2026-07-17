@@ -37,7 +37,12 @@ if (menu == 1)
 }
 else if (menu == 2)
 {
-	printf("Enter your Subtraction here: ");
+printf("Choice: 2 \n");
+	printf("A: ");
+	scanf("%d", &A);
+	printf("B: ");
+	scanf("%d", &B);
+	printf("Result: %d\n", A - B);
 }
 else if (menu == 3)
 {
