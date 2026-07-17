@@ -9,7 +9,7 @@ After selecting an option, the program prompts the user to enter two values: A a
 Performs the selected mathematical operation using the two input values.
 Displays the result of the calculation before returning to the main menu.
 The program continues running until the user selects 0 to exit.
-
+The calculator uses integer arithmetic.
 Current Limitations
 
 Entering a non-numeric character at the main menu will cause the program to loop infinitely and crash.

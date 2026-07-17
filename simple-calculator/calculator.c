@@ -62,7 +62,7 @@ printf("Choice: 4 \n");
 	scanf("%d", &B);
 	if (B == 0)
 	{
-		printf("Error: division by zero");
+		printf("Error: division by zero\n");
 	}
 	else
 	{
