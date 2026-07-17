@@ -60,8 +60,14 @@ printf("Choice: 4 \n");
 	scanf("%d", &A);
 	printf("B: ");
 	scanf("%d", &B);
-	printf("Result: %d\n", A / B);
-
+	if (B == 0)
+	{
+		printf("Error: division by zero");
+	}
+	else
+	{
+		printf("Result: %d\n", A / B);
+	}
 }
 else if (menu == 0)
 {
