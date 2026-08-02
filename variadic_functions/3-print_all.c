@@ -4,7 +4,7 @@
 
 /**
  * print_all - Prints arguments based on a format string
- * @format: String containing the argument type specifiers
+ * @format: String containing argument type specifiers
  *
  * Return: Nothing
  */
@@ -16,10 +16,8 @@ void print_all(const char * const format, ...)
 	char *string;
 
 	va_start(arguments, format);
-
 	i = 0;
 	separator = "";
-
 	while (format != NULL && format[i] != '\0')
 	{
 		switch (format[i])
@@ -38,18 +36,14 @@ void print_all(const char * const format, ...)
 			break;
 		case 's':
 			string = va_arg(arguments, char *);
-
 			if (string == NULL)
 				string = "(nil)";
-
 			printf("%s%s", separator, string);
 			separator = ", ";
 			break;
 		}
-
 		i++;
 	}
-
 	va_end(arguments);
 	printf("\n");
 }
