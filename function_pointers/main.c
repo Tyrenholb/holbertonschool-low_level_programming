@@ -1,55 +1,44 @@
 #include <stdio.h>
-#include "function_pointers.h"
+#include <stdlib.h>
+#include "3-calc.h"
 
 /**
- * is_98 - check if a number is equal to 98
- * @elem: the integer to check
+ * main - Performs simple mathematical operations
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line arguments
  *
- * Return: 0 if false, something else otherwise.
+ * Return: 0 on success, or an error status
  */
-int is_98(int elem)
+int main(int argc, char *argv[])
 {
-    return (98 == elem);
-}
+	int num1;
+	int num2;
+	int (*operation)(int, int);
 
-/**
- * is_strictly_positive - check if a number is greater than 0
- * @elem: the integer to check
- *
- * Return: 0 if false, something else otherwise.
- */
-int is_strictly_positive(int elem)
-{
-    return (elem > 0);
-}
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
+	operation = get_op_func(argv[2]);
 
-/**
- * abs_is_98 - check if the absolute value of a number is 98
- * @elem: the integer to check
- *
- * Return: 0 if false, something else otherwise.
- */
-int abs_is_98(int elem)
-{
-    return (elem == 98 || -elem == 98);
-}
+	if (operation == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    int array[20] = {0, -98, 98, 402, 1024, 4096, -1024, -98, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 98};
-    int index;
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
 
-    index = int_index(array, 20, is_98);
-    printf("%d\n", index);
-    index = int_index(array, 20, abs_is_98);
-    printf("%d\n", index);
-    index = int_index(array, 20, is_strictly_positive);
-    printf("%d\n", index);
-    return (0);
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	printf("%d\n", operation(num1, num2));
+
+	return (0);
 }
