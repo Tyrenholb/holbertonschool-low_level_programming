@@ -1,9 +1,12 @@
 #include <stdio.h>
 
 /**
- *@argc: void.
- *@argv: used to printf the string.
- *Return: always 0
+ *
+ * main - Prints the program name
+ *@argc: Number of command line arguements
+ *@argv: Array of command line arguement strings
+ *
+ * Return: always 0
  */
 
 int main(int argc, char *argv[])
