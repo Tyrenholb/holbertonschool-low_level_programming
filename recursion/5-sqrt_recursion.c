@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * sqrt_helper - finds the natural square root of a number
  * @n: number to find the square root of
