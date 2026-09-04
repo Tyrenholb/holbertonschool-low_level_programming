@@ -45,31 +45,34 @@ session_t *session_create(const char *id, unsigned int uid,
 	return (s);
 }
 
-int session_set_data(session_t *s, const unsigned char *data, size_t data_len)
+int session_set_data(session_t *s, const unsigned char *data,
+	size_t data_len)
 {
 	unsigned char *tmp;
 
 	if (!s)
-		return 0;
+		return (0);
 
-	if (data_len == 0) {
+	if (data_len == 0)
+	{
 		free(s->data);
 		s->data = NULL;
 		s->data_len = 0;
-		return 1;
+		return (1);
 	}
 
-	tmp = (unsigned char *)realloc(s->data, data_len);
+	if (!data)
+		return (0);
+
+	tmp = realloc(s->data, data_len);
+	if (!tmp)
+		return (0);
+
 	s->data = tmp;
-
-	if (!s->data) {
-		s->data_len = 0;
-		return 0;
-	}
-
 	memcpy(s->data, data, data_len);
 	s->data_len = data_len;
-	return 1;
+
+	return (1);
 }
 
 void session_destroy(session_t *s)

@@ -22,24 +22,38 @@ int store_add(store_t *st, session_t *s)
 {
 	node_t *n, *cur;
 
-	if (!st || !s || !s->id)
-		return 0;
+	if (!s)
+		return (0);
+
+	if (!st || !s->id)
+	{
+		session_destroy(s);
+		return (0);
+	}
 
 	cur = st->head;
-	while (cur) {
-		if (cur->sess && cur->sess->id && strcmp(cur->sess->id, s->id) == 0)
-			return 0;
+	while (cur)
+	{
+		if (cur->sess && cur->sess->id &&
+			strcmp(cur->sess->id, s->id) == 0)
+		{
+			session_destroy(s);
+			return (0);
+		}
 		cur = cur->next;
 	}
 
 	n = node_create(s);
-	if (!n) {
-		return 0;
+	if (!n)
+	{
+		session_destroy(s);
+		return (0);
 	}
 
 	n->next = st->head;
 	st->head = n;
-	return 1;
+
+	return (1);
 }
 
 session_t *store_get(store_t *st, const char *id)
@@ -61,32 +75,43 @@ session_t *store_get(store_t *st, const char *id)
 int store_delete(store_t *st, const char *id, session_t **out)
 {
 	node_t *cur, *prev;
+	session_t *removed;
+
+	if (out)
+		*out = NULL;
 
 	if (!st || !id)
-		return 0;
+		return (0);
 
 	prev = NULL;
 	cur = st->head;
 
-	while (cur) {
-		if (cur->sess && cur->sess->id && strcmp(cur->sess->id, id) == 0) {
+	while (cur)
+	{
+		if (cur->sess && cur->sess->id &&
+			strcmp(cur->sess->id, id) == 0)
+		{
 			if (prev)
 				prev->next = cur->next;
 			else
 				st->head = cur->next;
 
-			if (out)
-				*out = cur->sess;
-
-			session_destroy(cur->sess);
+			removed = cur->sess;
 			free(cur);
-			return 1;
+
+			if (out)
+				*out = removed;
+			else
+				session_destroy(removed);
+
+			return (1);
 		}
+
 		prev = cur;
 		cur = cur->next;
 	}
 
-	return 0;
+	return (0);
 }
 
 void store_destroy(store_t *st)
