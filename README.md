@@ -1,4 +1,4 @@
-# C — Low-Level Programming
+# C - Low-Level Programming
 
 This repository contains my C projects and exercises from Holberton School.
 It covers the basics of compiling and writing C, then moves into pointers,
