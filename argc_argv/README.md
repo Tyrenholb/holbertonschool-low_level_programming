@@ -18,21 +18,41 @@ argument strings: `argv[0]` is the program name used for invocation, and
 | [`3-mul.c`](3-mul.c) | Multiplies two values converted with `atoi`; prints `Error` if exactly two arguments are not supplied | `0` on success; `1` for the wrong argument count |
 | [`4-add.c`](4-add.c) | Adds arguments containing only decimal digits; prints `0` when no arguments are supplied | `0` on success; `1` if an argument contains a non-digit character |
 
+## Requirements
+
+- All C files are compiled on Ubuntu 20.04 LTS using GCC.
+- Required compiler options: `-Wall -Werror -Wextra -pedantic -std=gnu89`.
+- Code must follow the Betty style and pass both
+  [`betty-style.pl`](https://github.com/hs-hq/Betty/blob/master/betty-style.pl)
+  and [`betty-doc.pl`](https://github.com/hs-hq/Betty/blob/master/betty-doc.pl).
+
 ## Build
 
-Requirements: GCC and a shell. Each source defines its own `main`, so compile
-the programs separately.
+Each source defines its own `main`, so compile the programs separately.
 
 From the repository root:
 
 ```bash
 cd argc_argv
-gcc -Wall -Wextra -Werror -pedantic -std=gnu89 0-whatsmyname.c -o whatsmyname
-gcc -Wall -Wextra -Werror -pedantic -std=gnu89 1-args.c -o nargs
-gcc -Wall -Wextra -Werror -pedantic -std=gnu89 2-args.c -o args
-gcc -Wall -Wextra -Werror -pedantic -std=gnu89 3-mul.c -o mul
-gcc -Wall -Wextra -Werror -pedantic -std=gnu89 4-add.c -o add
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 0-whatsmyname.c -o whatsmyname
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 1-args.c -o nargs
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 2-args.c -o args
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 3-mul.c -o mul
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 4-add.c -o add
 ```
+
+## Betty checks
+
+With Betty installed and its commands available on your `PATH`, run these
+checks from `argc_argv` before submitting:
+
+```bash
+betty-style *.c
+betty-doc *.c
+```
+
+These commands run Betty's style and documentation checkers. Compile and run
+the programs separately to check their behavior.
 
 ## Usage
 
